@@ -1,0 +1,17 @@
+private Rigidbody 
+playerRb; 
+public float jumpForce;
+ public float gravityModifier; 
+void Start()
+ { 
+playerRb = GetComponent(); 
+Physics.gravity *= gravityModifier; } 
+
+public bool isOnGround = true
+ void Update()
+ {
+ if (Input.GetKeyDown(KeyCode.Space) && isOnGround) { 
+playerRb.AddForce(Vector3.up * 10 jumpForce, ForceMode.Impulse);
+ isOnGround = false; } } 
+private void OnCollisionEnter(Collision collision) {
+ isOnGround = true; } 
